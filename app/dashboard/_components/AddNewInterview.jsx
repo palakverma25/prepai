@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { v4 as uuidv4 } from 'uuid';
+import { db } from "@/utils/db";
 
 import {
   Dialog,
@@ -18,14 +19,17 @@ import { LoaderCircle } from "lucide-react";
 import { MockInterview } from "@/utils/schema";
 import { useUser } from "@clerk/nextjs";
 import moment from "moment";
+import { useRouter } from "next/navigation";
 
 function AddNewInterview() {
-  const [openDialog, setOpenDialog] = useState(false);
+  const [openDialog, setOpenDialog] = useState(false);//dialog spelling is different
   const [jobPosition, setJobPosition] = useState();
   const [jobDesc, setJobDesc] = useState();
   const [jobExperience, setJobExperience] = useState();
   const [loading, setLoading] = useState(false);
   const [JsonResponse , setJsonResponse] = useState([]);
+  const router=useRouter();
+  
   const {user} = useUser();
 
   const onSubmit = async (e) => {
@@ -50,6 +54,7 @@ function AddNewInterview() {
       .replace("```json", "")
       .replace("```", "");
     console.log(JSON.parse(MockJsonResp));
+    setJsonResponse(MockJsonResp);
 
     if(MockJsonResp)
     {
@@ -65,6 +70,10 @@ function AddNewInterview() {
     }).returning({mockId:MockInterview.mockId});
     // console.log("end"); 
     console.log("Inserted ID:",resp)
+    if(resp){
+      setOpenDialog(false);
+      router.push('/dashboard/interview/'+resp[0]?.mockId)
+    }
 }
 else
 {
