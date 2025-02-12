@@ -49,8 +49,8 @@ function AddNewInterview() {
       "interview questions and answers in JSON format.";
 
     const result = await chatSession.sendMessage(InputPromt);
-    const MockJsonResp = result.response
-      .text()
+    const MockJsonResp = (result.response
+      .text())
       .replace("```json", "")
       .replace("```", "");
     console.log(JSON.parse(MockJsonResp));

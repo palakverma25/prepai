@@ -35,7 +35,11 @@ GetInterviewDetails();
        activeQuestionIndex = {activeQuestionIndex}
        />
       {/* { Video/Audio Recording} */}
-      <RecordAnswerSection />
+      <RecordAnswerSection
+      mockInterviewQuestion={mockInterviewQuestion}
+      activeQuestionIndex = {activeQuestionIndex}
+      
+      />
      </div>
     </div>
   )
