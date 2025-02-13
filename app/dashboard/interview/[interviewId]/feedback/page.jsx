@@ -39,6 +39,11 @@ function Feedback({params}) {
     <div className='p-10'>
         <h2 className='text-3xl font-bold text-green-500'>Congratulations!!</h2>
         <h2 className='font-bold text-2xl'>Here is your AI-powered interview feedback!</h2>
+
+        {feedbackList?.length==0?
+         <h2 className='font-bold text-xl text-gray-500'>No Interview Feedback Record Found!!</h2>  
+      :
+      <>
         <h2 className='text-primary text-lg my-3'>Your overall interiew rating: <strong>7/10</strong></h2>
 
         <h2 className='text-sm text-gray-500'>Find below interview questions with AI-powered insights, correct answers and AI-powered feedback on your interview!</h2>
@@ -69,6 +74,8 @@ function Feedback({params}) {
         </Collapsible>
         
         ))}
+        </>}
+
         
         <Button onClick={()=>router.replace('/dashboard')}>Go Home</Button>
     </div>
