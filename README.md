@@ -1,36 +1,97 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# PrepAI - AI-Powered Interview Preparation App
 
-## Getting Started
+PrepAI is an AI-powered mock interview platform designed to help users practice and improve their interview skills through intelligent question generation and AI-driven feedback. Built with modern technologies, PrepAI provides a seamless and interactive experience, simulating real-world interview scenarios.
 
-First, run the development server:
+## 🚀 Features
 
-```bash
+### 🎯 AI-Powered Mock Interviews
+- Uses **Gemini API** to generate intelligent interview questions tailored to the user's experience and job role.
+- Provides AI-driven feedback on answers to help users improve their performance.
+
+### 🏗️ Modern Tech Stack
+- **Next.js & React.js** for a high-performance and interactive frontend.
+- **Tailwind CSS** for a sleek, responsive, and modern UI.
+- **JavaScript** for dynamic client-side functionality.
+- **Drizzle ORM** for efficient and scalable database management.
+
+### 🔒 Secure Authentication & User Management
+- **Clerk Integration** for secure authentication and seamless user management.
+- Supports social logins and email/password authentication for an enhanced user experience.
+
+### 📊 Performance & Scalability
+- Optimized database queries using **Drizzle ORM** for better efficiency.
+- Built on **Next.js**, ensuring fast rendering and smooth navigation.
+
+### 🎥 Real-World Interview Simulation
+- Users can **record** and **review** their responses to mock interview questions.
+- AI-generated feedback helps users identify strengths and areas for improvement.
+
+### 📅 Personalized Interview Sessions
+- Users can select their **job position**, **tech stack**, and **years of experience** to get customized interview questions.
+- Interactive question flow with **previous**, **next**, and **end interview** options.
+
+## 🛠️ Technologies Used
+- **Frontend:** Next.js, React.js, Tailwind CSS, JavaScript
+- **Backend & Database:** Drizzle ORM
+- **AI Integration:** Gemini API
+- **Authentication:** Clerk
+
+## 🔧 Getting Started
+
+### Prerequisites
+Ensure you have the following installed:
+- Node.js (v16+ recommended)
+- npm or yarn
+
+### Installation
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/your-username/prepai.git
+   cd prepai
+   ```
+2. Install dependencies:
+   ```sh
+   npm install
+   # or
+   yarn install
+   ```
+3. Create a `.env.local` file in the root directory and add:
+   ```env
+   NEXT_PUBLIC_GEMINI_API_KEY=your-gemini-api-key
+   NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your-clerk-publishable-key
+   CLERK_SECRET_KEY=your-clerk-secret-key
+   DATABASE_URL=your-database-url
+   ```
+
+### Running the App
+To start the development server, run:
+```sh
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+Open [http://localhost:3000](http://localhost:3000) to view the app.
+
+### Deployment
+PrepAI can be deployed on **Vercel** or any other hosting platform that supports Next.js.
+```sh
+vercel
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📌 Roadmap
+- ✅ AI-driven feedback on responses
+- ✅ Real-time video/audio recording for better review
+- ⏳ Multi-language support
+- ⏳ Resume analysis and AI-based improvements
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 🤝 Contributing
+Contributions are welcome! Feel free to open an issue or submit a pull request.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📄 License
+This project is licensed under the MIT License.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+### 💡 PrepAI: Your AI-Powered Interview Companion!
+**Practice. Improve. Get Hired.**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
