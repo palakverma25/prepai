@@ -1,28 +1,31 @@
 "use client";
 import { MockInterview } from "@/utils/schema";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, use } from "react"; // ✅ Import `use`
 import { db } from "@/utils/db";
 import { eq } from "drizzle-orm";
 import Webcam from "react-webcam";
-import { WebcamIcon } from "lucide-react";
+import { WebcamIcon, Lightbulb } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Lightbulb } from "lucide-react";
 import Link from "next/link";
 
 function Interview({ params }) {
   const [interviewData, setInterviewData] = useState();
   const [webCamEnabled, setWebCamEnabled] = useState(false);
 
+  // ✅ Unwrap `params` safely
+  const { interviewId } = use(params);
+
   useEffect(() => {
-    console.log(params.interviewId);
+    console.log(interviewId);
     GetInterviewDetails();
-  }, []);
-  //used to get interview details
+  }, []); // ✅ Added dependency array to prevent infinite calls
+
+  // ✅ Use `interviewId` safely after unwrapping
   const GetInterviewDetails = async () => {
     const result = await db
       .select()
       .from(MockInterview)
-      .where(eq(MockInterview.mockId, params.interviewId));
+      .where(eq(MockInterview.mockId, interviewId));
 
     setInterviewData(result[0]);
   };
@@ -30,9 +33,9 @@ function Interview({ params }) {
   return (
     <div className="my-10">
       <h2 className="font-bold text-2xl">Let's Get Started</h2>
-      <div className=" grid grid-cols-1 md:grid-cols-2 gap-10">
-        <div className="flex-col flex my-5 gap-5 ">
-          <div className=" flex-col flex gap-5 p-5 rounded-lg border ">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div className="flex-col flex my-5 gap-5">
+          <div className="flex-col flex gap-5 p-5 rounded-lg border">
             <h2>
               <strong>Job Role/Job Position: </strong>
               {interviewData?.jobPosition}
@@ -70,16 +73,20 @@ function Interview({ params }) {
           ) : (
             <>
               <WebcamIcon className="h-72 w-full my-7 p-20 bg-secondary rounded-lg border" />
-              <Button variant="ghost" className="w-full"onClick={() => setWebCamEnabled(true)}>
-                Enable WebCam and Microphone{" "}
+              <Button
+                variant="ghost"
+                className="w-full"
+                onClick={() => setWebCamEnabled(true)}
+              >
+                Enable WebCam and Microphone
               </Button>
             </>
           )}
         </div>
       </div>
       <div className="flex justify-end items-end">
-        <Link href={'/dashboard/interview/'+params.interviewId+'/start'}>
-        <Button>Start Interview</Button>
+        <Link href={`/dashboard/interview/${interviewId}/start`}>
+          <Button>Start Interview</Button>
         </Link>
       </div>
     </div>
