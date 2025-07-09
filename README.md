@@ -4,7 +4,7 @@
 ## 💡 The Problem
 Job seekers struggle with interview anxiety and lack personalized practice opportunities. Traditional mock interviews are expensive, time-consuming, and don't provide intelligent feedback.
 
- **Live Demo:** prepai-five.vercel.app/  
+**Live Demo:** [View PrepAI App](https://prepai-five.vercel.app/) 
 ## 🚀 Our Solution
 PrepAI leverages cutting-edge AI to create **personalized mock interviews** that adapt to your experience level, role, and industry. Get instant feedback, track progress, and build confidence—all powered by Google's Gemini AI.
 
@@ -20,7 +20,7 @@ Deployment  → Vercel
 ## 🎯 Features We Shipped
 - **🤖 Smart Question Engine** - AI generates role-specific questions in real-time
 - **🎥 Record & Review** - Practice with video recording and instant playback
-- **📊 AI-Powered Feedback** - Get detailed analysis on communication, confidence, and content
+- **📊 AI-Powered Feedback** - Get detailed analysis on content
 - **⚙️ Personalized Sessions** - Customize by job title, tech stack, and experience level
 - **🔐 Secure & Fast** - One-click authentication with social logins
 
